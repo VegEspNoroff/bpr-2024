@@ -1,0 +1,25 @@
+id: dionaea-http-defaultResponse-Server-honeypot-detection
+
+info:
+  name: Check HTTP Response - Dionaea honeypot
+  author: Vegard E
+  severity: info
+  description: |
+    Checks for a specific response. Adapted from Table 1
+    Protocol handshake deviation Srinivasa, S., Pedersen, J. M., &
+    Vasilomanolakis, E. (2023) https://doi.org/10.1145/3584976
+
+http:
+  - raw:
+    - |
+      GET / HTTP/1.0
+      Host: {{Hostname}}
+
+    matchers:
+      - type: word
+        words:
+          - "Server: nginx" # if like
+          - "Server: nginx/" # and not like "Server: nginx/1.18.0 (Ubuntu)"
+        part: header
+        condition: and
+        negative: true
