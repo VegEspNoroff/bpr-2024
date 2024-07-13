@@ -1,12 +1,12 @@
 id: dionaea-http-defaultContent-honeypot-detection
 
 info:
-  name: Check HTTP Response - Dionaea honeypot
+  name: Check HTTP webcontent - Dionaea honeypot
   author: Vegard E
   severity: info
   description: |
     Sends a custom HTTP 1.0 request and checks for a specific
-    response. Adapted from Table 7 (Morishita et al., 2019)
+    webcontent. Adapted from Table 7 (Morishita et al., 2019)
     http://yoshioka.ynu.ac.jp/papers/IM2019-honeypot.pdf
 
 http:
